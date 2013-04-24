@@ -391,8 +391,8 @@ footer .owner p a {
 
 .markdown-body pre {
   padding: 10px 70px 10px 0;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: 0px;
+  margin-right: 0px;
   font-family: 'Monaco', 'Lucida Console', monospace;
   font-size: 13px;
   line-height: 20px;
