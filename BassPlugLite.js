@@ -15,7 +15,7 @@
  * TERMS OF REPRODUCTION USE
  *
  * 1. Provide a link back to the original repository (this repository), as
- *       in, https://github.com/derpthebass/, that is well-visible
+ *         in, https://github.com/derpthebass/, that is well-visible
  * 		wherever the source is being reproduced.  For example, should you
  * 		display it on a website, you should provide a link above/below that
  *		which the users use, titled something such as "ORIGINAL AUTHOR".
@@ -31,6 +31,8 @@
  * Original Author -
  * @derpthebass (Caleb)
  */
+$('#BassPlugLite.js').remove();
+
 var bplAutowoot = false;
 var bplAutojoin = false;
 
@@ -78,13 +80,11 @@ function BassPlugLite(){
 //CSS/jQuery
     jQuery("#BPL-Autowoot").on("click", function() {
         bplAutowoot = !bplAutowoot;
-        jQuery(this).css("color", bplAutowoot ? "#00FFDE" : "#3B3B3B");
-        jQuery(this).css("border-color", bplAutowoot ? "#00FFDE" : "#3B3B3B");
+        jQuery(this).css("border-color", bplAutowoot ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
     });
     jQuery("#BPL-Autojoin").on("click", function() {
         bplAutojoin = !bplAutojoin;
-        jQuery(this).css("color", bplAutojoin ? "#00FFDE" : "#3B3B3B");
-        jQuery(this).css("border-color", bplAutojoin ? "#00FFDE" : "#3B3B3B");
+        jQuery(this).css("border-color", bplAutojoin ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
     });
 
     jQuery("#BPL-Autowoot") .hover(function(event){
@@ -101,9 +101,9 @@ function BassPlugLite(){
     });
 
     $('body').prepend('<style type="text/css" id="BPL-CSS">'
-        + '#BPL-Menu {position: absolute; top: 75px;}'
-        + '#BPL-Autojoin {cursor: pointer; position: absolute; left: 240px; color:#3B3B3B; left: 258px; font-variant: small-caps; font-size: 10px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 4px; border-color: #3B3B3B; margin-bottom: 1px; margin-top: 3px;}'
-        + '#BPL-Autowoot {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 10px; font-size: 10px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 4px; border-color: #3B3B3B; margin-bottom: 1px; margin-top: 3px;}');
+        + '#BPL-Menu {position: absolute; top: 78px;}'
+        + '#BPL-Autojoin {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 262px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}'
+        + '#BPL-Autowoot {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 4px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}');
 
 }
 
