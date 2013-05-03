@@ -35,7 +35,7 @@
 var bplAutowoot = false;
 var bplAutojoin = false;
 
-$('#BassPlugLite.js').remove();
+$('#BassPlugLite-js').remove();
 
 function BassPlugLite(){
     $('#BPL-Menu').remove();
@@ -55,7 +55,7 @@ function BassPlugLite(){
         })
     };
 
-    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.03");
+    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.04");
 //Core Functions
     API.addEventListener(API.DJ_ADVANCE, function(data){
 
