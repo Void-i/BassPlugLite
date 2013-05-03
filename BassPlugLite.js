@@ -108,4 +108,6 @@ function BassPlugLite(){
 
 }
 
+$('#BassPlugLite-js').remove();
+
 BassPlugLite();
