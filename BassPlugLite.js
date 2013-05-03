@@ -35,8 +35,6 @@
 var bplAutowoot = false;
 var bplAutojoin = false;
 
-$('#BassPlugLite-js').remove();
-
 function BassPlugLite(){
     $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
