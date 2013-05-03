@@ -35,7 +35,10 @@
 var bplAutowoot = false;
 var bplAutojoin = false;
 
+$('#BassPlugLite.js').remove();
+
 function BassPlugLite(){
+    $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
     $('#BPL-Menu').append(
         '<p id="BPL-Autowoot">Autowoot</p>' +
@@ -52,7 +55,7 @@ function BassPlugLite(){
         })
     };
 
-    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.02");
+    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.03");
 //Core Functions
     API.addEventListener(API.DJ_ADVANCE, function(data){
 
@@ -98,7 +101,6 @@ function BassPlugLite(){
      function(event){
         jQuery("#BPL-Autojoin").css("border-style", "solid");
     });
-    $('#BassPlugLite-js').remove();
     $('body').prepend('<style type="text/css" id="BPL-CSS">'
         + '#BPL-Menu {position: absolute; top: 78px;}'
         + '#BPL-Autojoin {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 258px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}'
