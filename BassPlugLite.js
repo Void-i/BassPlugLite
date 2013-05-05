@@ -81,10 +81,12 @@ function BassPlugLite(){
     jQuery("#BPL-Autowoot").on("click", function() {
         bplAutowoot = !bplAutowoot;
         jQuery(this).css("border-color", bplAutowoot ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
+        new RoomVoteService(1);
     });
     jQuery("#BPL-Autojoin").on("click", function() {
         bplAutojoin = !bplAutojoin;
         jQuery(this).css("border-color", bplAutojoin ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
+        new WaitlistJoinService();
     });
 
     jQuery("#BPL-Autowoot") .hover(function(event){
