@@ -62,7 +62,7 @@ function BassPlugLite(){
         }, 2000);
         }
         if(bplAutojoin && $("#button-waitlist-leave").is(':visible') === false){
-            new WaitlistJoinService();
+            new WaitListJoinService();
         }
     });
 
@@ -86,7 +86,7 @@ function BassPlugLite(){
     jQuery("#BPL-Autojoin").on("click", function() {
         bplAutojoin = !bplAutojoin;
         jQuery(this).css("border-color", bplAutojoin ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
-        new WaitlistJoinService();
+        new WaitListJoinService();
     });
 
     jQuery("#BPL-Autowoot") .hover(function(event){
