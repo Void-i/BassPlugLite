@@ -13,6 +13,7 @@ Function 2. Autojoin - Automatically joins the DJ booth or waitlist after your s
 
 Additionally, a !disable command is provided for room moderators which gives them the ability to turn of a user's autojoin.
 
+For installation instructions go here: http://derpthebass.github.io/BassPlugLite/
 
 
 
