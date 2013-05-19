@@ -16,7 +16,7 @@
  *
  * 1. Provide a link back to the original repository (this repository), as
  *         in, https://github.com/derpthebass/, that is well-visible
- * 		wherever the source is being reproduced.  For example, should you
+ *     	wherever the source is being reproduced.  For example, should you
  * 		display it on a website, you should provide a link above/below that
  *		which the users use, titled something such as "ORIGINAL AUTHOR".
  *
@@ -53,7 +53,7 @@ function BassPlugLite(){
         })
     };
 
-    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.04");
+    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.05");
 //Core Functions
     API.addEventListener(API.DJ_ADVANCE, function(data){
 
@@ -67,14 +67,14 @@ function BassPlugLite(){
     });
 
     API.addEventListener(API.CHAT, function(data){
-       if(data.message.indexOf("!disable") > -1 && Models.room.data.staff[data.fromID] > 1 && data.type === "mention") {
-           if(bplAutojoin){
-           jQuery("#BPL-Autojoin").click();
-           Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
-           }else{
-           Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
-           }
-       }
+        if(data.message.indexOf("!disable") > -1 && Models.room.data.staff[data.fromID] > 1 && data.type === "mention") {
+            if(bplAutojoin){
+                jQuery("#BPL-Autojoin").click();
+                Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
+            }else{
+                Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
+            }
+        }
     });
 
 //CSS/jQuery
@@ -96,13 +96,13 @@ function BassPlugLite(){
             jQuery(this).css("border-style", "solid");
         });
     jQuery("#BPL-Autojoin") .hover(function(event){
-        jQuery(this).css("border-style", "ridge");
-    },
-     function(event){
-        jQuery("#BPL-Autojoin").css("border-style", "solid");
-    });
+            jQuery(this).css("border-style", "ridge");
+        },
+        function(event){
+            jQuery("#BPL-Autojoin").css("border-style", "solid");
+        });
     $('body').prepend('<style type="text/css" id="BPL-CSS">'
-        + '#BPL-Menu {position: absolute; top: 78px;}'
+        + '#BPL-Menu {position: absolute; top: 73%;}'
         + '#BPL-Autojoin {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 258px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}'
         + '#BPL-Autowoot {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 4px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}');
 
