@@ -53,7 +53,7 @@ function BassPlugLite(){
         })
     };
 
-    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.05");
+    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.06");
 //Core Functions
     API.addEventListener(API.DJ_ADVANCE, function(data){
 
@@ -70,6 +70,8 @@ function BassPlugLite(){
         if(data.message.indexOf("!disable") > -1 && Models.room.data.staff[data.fromID] > 1 && data.type === "mention") {
             if(bplAutojoin){
                 jQuery("#BPL-Autojoin").click();
+                new WaitlistLeaveService();
+                new DJLeaveService();
                 Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
             }else{
                 Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
