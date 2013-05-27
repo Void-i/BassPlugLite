@@ -70,9 +70,9 @@ function BassPlugLite(){
         if(data.message.indexOf("!disable") > -1 && Models.room.data.staff[data.fromID] > 1 && data.type === "mention") {
             if(bplAutojoin){
                 jQuery("#BPL-Autojoin").click();
-                new WaitlistLeaveService();
-                new DJLeaveService();
                 Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
+                new WaitListLeaveService();
+                new DJLeaveService();
             }else{
                 Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
             }
