@@ -58,7 +58,7 @@ For installation instructions go here: http://derpthebass.github.io/BassPlugLite
 >that going for me.
  
 >#####Original Author -
->@author derpthebass (Caleb)
+>derpthebass (Caleb)
 
 
 
