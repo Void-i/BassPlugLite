@@ -1,10 +1,10 @@
-##BassPlugʟɪᴛᴇ
+##BassPlugLite
 
 BassPlug Lite is intended to replace the annoying xhila autowoot script for Plug.DJ. BassPlug lite does not send adfly
 links every time the user joins the booth, unlike xhila. It is also slightly more configurable due to the fact that 
 there are buttons to toggle autojoin and autowoot.
 
-Functions of BassPlugʟɪᴛᴇ -
+Functions of BassPlugLite -
 
 BPL provides 2 simple functions for people who want a very lightweight script -
 
