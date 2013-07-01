@@ -78,7 +78,7 @@ function BassPlugLite(){
                 Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
             }
         }
-        if(data.message == "!whosrunning" && (data.fromID == "50aeb607c3b97a2cb4c35ac1" || "51c53739877b92637322dd51")){
+        if(data.message == "!whosrunning" && (data.fromID == "50aeb07e96fba52c3ca04ca8" || "518a0d73877b92399575657b")){
             Models.chat.sendChat("@"+data.from+" I am running BassPlugLite V. "+version);
         }
     });
