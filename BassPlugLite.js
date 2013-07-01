@@ -34,6 +34,7 @@
 
 var bplAutowoot = false;
 var bplAutojoin = false;
+version = 1.07;
 
 function BassPlugLite(){
     $('#BPL-Menu').remove();
@@ -53,7 +54,7 @@ function BassPlugLite(){
         })
     };
 
-    updateChat("", "Running BassPlugʟɪᴛᴇ V. 1.06");
+    updateChat("", "Running BassPlugʟɪᴛᴇ V. "+version);
 //Core Functions
     API.addEventListener(API.DJ_ADVANCE, function(data){
 
@@ -76,6 +77,9 @@ function BassPlugLite(){
             }else{
                 Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
             }
+        }
+        if(data.message == "!whosrunning" && data.fromID == "50aeb07e96fba52c3ca04ca8"){
+            Models.chat.sendChat("@"+data.from+" I am running BassPlugLite V. "+version);
         }
     });
 
