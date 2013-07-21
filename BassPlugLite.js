@@ -44,42 +44,30 @@ function BassPlugLite(){
             '<p id="BPL-Autojoin">Autojoin</p>' +
             '</div>'
     );
-
-    var updateChat = function(from, message){
-        Models.chat.receive({
-            type: "update",
-            from: from,
-            message: message,
-            language: Models.user.data.language
-        })
-    };
-
-    updateChat("", "Running BassPlugʟɪᴛᴇ V. "+version);
 //Core Functions
     API.addEventListener(API.DJ_ADVANCE, function(data){
 
         if(bplAutowoot){setTimeout(function(){
-            new RoomVoteService(1);
+            $("#button-vote-positive").click();
         }, 2000);
         }
         if(bplAutojoin && $("#button-waitlist-leave").is(':visible') === false){
-            new WaitListJoinService();
+            $("#button-waitlist-join").click();
         }
     });
 
     API.addEventListener(API.CHAT, function(data){
-        if(data.message.indexOf("!disable") > -1 && Models.room.data.staff[data.fromID] > 1 && data.type === "mention") {
+        if(data.message.indexOf("!disable") > -1 && API.getUser(a.fromID).permission > 1 && data.type === "mention") {
             if(bplAutojoin){
                 jQuery("#BPL-Autojoin").click();
-                Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
-                new WaitListLeaveService();
-                new DJLeaveService();
+                API.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
+                $("#button-waitlist-leave").click();
             }else{
-                Models.chat.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
+                API.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
             }
         }
         if(data.message == "!whosrunning" && (data.fromID == "50aeb07e96fba52c3ca04ca8" || "518a0d73877b92399575657b")){
-            Models.chat.sendChat("@"+data.from+" I am running BassPlugLite V. "+version);
+            API.sendChat("@"+data.from+" I am running BassPlugLite V. "+version);
         }
     });
 
