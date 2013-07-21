@@ -34,7 +34,7 @@
 
 var bplAutowoot = false;
 var bplAutojoin = false;
-version = 1.07;
+version = 1.08;
 
 function BassPlugLite(){
     $('#BPL-Menu').remove();
@@ -44,6 +44,8 @@ function BassPlugLite(){
             '<p id="BPL-Autojoin">Autojoin</p>' +
             '</div>'
     );
+    
+API.chatLog("Running BassPlugLite V. "+version);
 //Core Functions
     API.on(API.DJ_ADVANCE, function(data){
 
@@ -52,7 +54,7 @@ function BassPlugLite(){
         }, 2000);
         }
         if(bplAutojoin && $("#button-waitlist-leave").is(':visible') === false){
-            $("#button-waitlist-join").click();
+            API.djJoin()
         }
     });
 
@@ -61,7 +63,7 @@ function BassPlugLite(){
             if(bplAutojoin){
                 jQuery("#BPL-Autojoin").click();
                 API.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
-                $("#button-waitlist-leave").click();
+                API.djLeave()
             }else{
                 API.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
             }
@@ -75,12 +77,12 @@ function BassPlugLite(){
     jQuery("#BPL-Autowoot").on("click", function() {
         bplAutowoot = !bplAutowoot;
         jQuery(this).css("border-color", bplAutowoot ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
-        new RoomVoteService(1);
+        $("#button-vote-positive").click();
     });
     jQuery("#BPL-Autojoin").on("click", function() {
         bplAutojoin = !bplAutojoin;
         jQuery(this).css("border-color", bplAutojoin ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
-        new WaitListJoinService();
+        if(bplAutojoin)API.djJoin();
     });
 
     jQuery("#BPL-Autowoot") .hover(function(event){
