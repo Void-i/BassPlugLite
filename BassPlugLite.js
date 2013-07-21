@@ -45,7 +45,7 @@ function BassPlugLite(){
             '</div>'
     );
 //Core Functions
-    API.addEventListener(API.DJ_ADVANCE, function(data){
+    API.on(API.DJ_ADVANCE, function(data){
 
         if(bplAutowoot){setTimeout(function(){
             $("#button-vote-positive").click();
@@ -56,7 +56,7 @@ function BassPlugLite(){
         }
     });
 
-    API.addEventListener(API.CHAT, function(data){
+    API.on(API.CHAT, function(data){
         if(data.message.indexOf("!disable") > -1 && API.getUser(a.fromID).permission > 1 && data.type === "mention") {
             if(bplAutojoin){
                 jQuery("#BPL-Autojoin").click();
