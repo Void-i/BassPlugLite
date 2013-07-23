@@ -34,7 +34,7 @@
 
 var bplAutowoot = false;
 var bplAutojoin = false;
-version = 1.08;
+version = 1.09;
 
 function BassPlugLite(){
     $('#BPL-Menu').remove();
@@ -59,7 +59,7 @@ API.chatLog("Running BassPlugLite V. "+version);
     });
 
     API.on(API.CHAT, function(data){
-        if(data.message.indexOf("!disable") > -1 && API.getUser(a.fromID).permission > 1 && data.type === "mention") {
+        if(data.message.indexOf("!disable") > -1 && API.getUser(data.fromID).permission > 1 && data.type === "mention") {
             if(bplAutojoin){
                 jQuery("#BPL-Autojoin").click();
                 API.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
