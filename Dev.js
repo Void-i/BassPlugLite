@@ -32,11 +32,14 @@
  * @derpthebass (Caleb)
  */
 
-var bplAutowoot = false;
-var bplAutojoin = false;
+
+var bplAutowoot  = false;
+var bplAutojoin  = false;
 version = 1.11;
 
 function BassPlugLite(){
+var BassPlugLite = true;
+    
     $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
     $('#BPL-Menu').append(
@@ -105,6 +108,5 @@ API.chatLog("Running BassPlugLite V. "+version);
 
 }
 
-$('#BassPlugLite-js').remove();
+if(!BassPlugLite)BassPlugLite();
 
-BassPlugLite();
