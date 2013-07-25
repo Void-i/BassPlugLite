@@ -17,7 +17,7 @@
  * 1. Provide a link back to the original repository (this repository), as
  *         in, https://github.com/derpthebass/BassPlugLite, that is well-visible
  *      wherever the source is being reproduced.  For example, should you
- *     	display it on a website, you should provide a link above/below that
+ *         display it on a website, you should provide a link above/below that
  *		which the users use, titled something such as "ORIGINAL AUTHOR".
  *
  * 2. Retain these three comments:  the GNU GPL license statement, this comment,
@@ -34,10 +34,11 @@
 
 var bplAutowoot = false;
 var bplAutojoin = false;
-var version     = 1.11;
+var version     = 1.12;
 
 function BassPlugLite(){
-window.BPLite = true;
+    var joined = new Date().getTime();
+    window.BPLite = true;
     $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
     $('#BPL-Menu').append(
@@ -45,7 +46,7 @@ window.BPLite = true;
             '<p id="BPL-Autojoin">Autojoin</p>' +
             '</div>'
     );
-    
+
 //Core Functions
     API.on(API.DJ_ADVANCE, function(data){
 
@@ -70,7 +71,8 @@ window.BPLite = true;
             }
         }
         if(data.message == "!whosrunning" && (data.fromID == "50aeb07e96fba52c3ca04ca8" || "518a0d73877b92399575657b")){
-            API.sendChat("@"+data.from+" I am running BassPlugLite V. "+version);
+            var elapsed = new Date().getTime() - joined;
+            API.sendChat("@"+data.from+"I'm running BassPlugLite V. "+version+" ("+Math.round(elapsed/100000)+")");
         }
     });
 
@@ -103,7 +105,7 @@ window.BPLite = true;
         + '#BPL-Autojoin {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 258px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}'
         + '#BPL-Autowoot {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 4px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}');
 
-API.chatLog("Running BassPlugLite V. "+version);
+    API.chatLog("Running BassPlugLite V. "+version);
 }
 
 if(typeof BPLite == "undefined")BassPlugLite();
