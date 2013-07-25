@@ -48,7 +48,6 @@ var BPLite = true;
             '</div>'
     );
     
-API.chatLog("Running BassPlugLite V. "+version);
 //Core Functions
     API.on(API.DJ_ADVANCE, function(data){
 
@@ -106,7 +105,8 @@ API.chatLog("Running BassPlugLite V. "+version);
         + '#BPL-Autojoin {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 258px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}'
         + '#BPL-Autowoot {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 4px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}');
 
+API.chatLog("Running BassPlugLite V. "+version);
 }
 
-if(typeof BPLite != null)BassPlugLite();
+if(typeof BPLite === undefined)BassPlugLite();
 
