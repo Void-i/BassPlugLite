@@ -32,7 +32,7 @@
  * @derpthebass (Caleb)
  */
 
-
+var BPLite;
 var bplAutowoot  = false;
 var bplAutojoin  = false;
 version = 1.16;
