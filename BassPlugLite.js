@@ -38,7 +38,6 @@ var version     = 1.11;
 
 function BassPlugLite(){
 window.BPLite = true;
-    
     $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
     $('#BPL-Menu').append(
