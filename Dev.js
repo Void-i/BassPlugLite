@@ -107,4 +107,4 @@ window.BPLite = true;
 API.chatLog("Running BassPlugLite V. "+version);
 }
 
-if(typeof BPLite == undefined)BassPlugLite();
+if(typeof BPLite == "undefined")BassPlugLite();
