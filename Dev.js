@@ -108,5 +108,4 @@ sessionStorage.setItem("BPLite", "true");
 API.chatLog("Running BassPlugLite V. "+version);
 }
 
-if(sessionStorage.getItem("BPLite") == "false")BassPlugLite();
-
+if(sessionStorage.getItem("BPLite") === "false")BassPlugLite();
