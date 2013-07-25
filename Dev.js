@@ -38,7 +38,7 @@ var bplAutojoin  = false;
 version = 1.11;
 
 function BassPlugLite(){
-var BassPlugLite = true;
+var BPLite = true;
     
     $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
@@ -108,5 +108,5 @@ API.chatLog("Running BassPlugLite V. "+version);
 
 }
 
-if(!BassPlugLite)BassPlugLite();
+if(!BPLite)BassPlugLite();
 
