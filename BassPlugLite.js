@@ -72,7 +72,7 @@ function BassPlugLite(){
         }
         if(data.message == "!whosrunning" && (data.fromID == "50aeb07e96fba52c3ca04ca8" || "518a0d73877b92399575657b")){
             var elapsed = new Date().getTime() - joined;
-            API.sendChat("@"+data.from+"I'm running BassPlugLite V. "+version+" ("+Math.round(elapsed/100000)+")");
+            API.sendChat("@"+data.from+" I'm running BassPlugLite V. "+version+" ("+Math.round(elapsed/100000)+" M)");
         }
     });
 
