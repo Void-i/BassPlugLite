@@ -32,13 +32,12 @@
  * @derpthebass (Caleb)
  */
 
-sessionStorage.setItem("BPLite", "false");
 var bplAutowoot = false;
 var bplAutojoin = false;
 var version     = 1.17;
 
 function BassPlugLite(){
-sessionStorage.setItem("BPLite", "true");
+window.BPLite = true;
     
     $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
@@ -108,4 +107,4 @@ sessionStorage.setItem("BPLite", "true");
 API.chatLog("Running BassPlugLite V. "+version);
 }
 
-if(sessionStorage.getItem("BPLite") === "false")BassPlugLite();
+if(typeof BPLite == undefined)BassPlugLite();
