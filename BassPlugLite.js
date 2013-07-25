@@ -16,8 +16,8 @@
  *
  * 1. Provide a link back to the original repository (this repository), as
  *         in, https://github.com/derpthebass/BassPlugLite, that is well-visible
- *     	wherever the source is being reproduced.  For example, should you
- * 		display it on a website, you should provide a link above/below that
+ *      wherever the source is being reproduced.  For example, should you
+ *     	display it on a website, you should provide a link above/below that
  *		which the users use, titled something such as "ORIGINAL AUTHOR".
  *
  * 2. Retain these three comments:  the GNU GPL license statement, this comment,
@@ -34,9 +34,11 @@
 
 var bplAutowoot = false;
 var bplAutojoin = false;
-version = 1.10;
+var version     = 1.11;
 
 function BassPlugLite(){
+window.BPLite = true;
+    
     $('#BPL-Menu').remove();
     $('#dj-console').prepend('<div id="BPL-Menu"></div>');
     $('#BPL-Menu').append(
@@ -45,7 +47,6 @@ function BassPlugLite(){
             '</div>'
     );
     
-API.chatLog("Running BassPlugLite V. "+version);
 //Core Functions
     API.on(API.DJ_ADVANCE, function(data){
 
@@ -103,6 +104,7 @@ API.chatLog("Running BassPlugLite V. "+version);
         + '#BPL-Autojoin {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 258px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}'
         + '#BPL-Autowoot {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 4px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}');
 
+API.chatLog("Running BassPlugLite V. "+version);
 }
 
-BassPlugLite();
+if(typeof BPLite == "undefined")BassPlugLite();
