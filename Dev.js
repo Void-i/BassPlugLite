@@ -35,7 +35,7 @@
 
 var bplAutowoot  = false;
 var bplAutojoin  = false;
-version = 1.14;
+version = 1.15;
 
 function BassPlugLite(){
 var BPLite = true;
@@ -108,8 +108,8 @@ API.chatLog("Running BassPlugLite V. "+version);
 
 }
 
-if(BPLite){
-    return false;
-}else{
+try{
+    BPLite
+}catch{
     BassPlugLite();
 }
