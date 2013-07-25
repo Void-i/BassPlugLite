@@ -108,5 +108,8 @@ API.chatLog("Running BassPlugLite V. "+version);
 
 }
 
-if(BPLite == undefined)BassPlugLite();
-
+if(BPLite){
+    return false;
+}else{
+    BassPlugLite();
+}
