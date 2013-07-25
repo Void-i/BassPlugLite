@@ -110,6 +110,6 @@ API.chatLog("Running BassPlugLite V. "+version);
 
 try{
     BPLite
-}catch{
+}catch(){
     BassPlugLite();
 }
