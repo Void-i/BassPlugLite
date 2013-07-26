@@ -34,7 +34,7 @@
 
 var bplAutowoot = false;
 var bplAutojoin = false;
-var version     = 1.12;
+var version     = 1.13;
 
 function BassPlugLite(){
     var joined = new Date().getTime();
