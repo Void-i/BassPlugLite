@@ -70,7 +70,7 @@ function BassPlugLite(){
                 API.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
             }
         }
-        if(data.message == "!whosrunning" && data.fromID === ("50aeb07e96fba52c3ca04ca8" || "50bc101cd6e4a971f40352e0" || "518a0d73877b92399575657b")){
+        if(data.message == "!whosrunning" && data.fromID === "50aeb07e96fba52c3ca04ca8"){
             var elapsed = new Date().getTime() - joined;
             API.sendChat("@"+data.from+" I'm running BassPlugLite V. "+version+" ("+Math.round(elapsed/100000)+" M)");
         }
