@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+#bplMenu
+{
+	width: 221px;
+	height: 25px;
+	background: rgba(0, 0, 0, 0.25);
+	position: absolute;
+}
+.bplButton
+{
+	background: rgba(0, 0, 0, 0.35);
+	width: 100px;
+	height: 19px;
+	margin: 3px;
+	cursor: pointer;
+	text-align: right;
+	padding-right: 3px;
+	border-radius: 2px;
+	position: relative;
+	font-size: 16px;
+	color: #999;
+}
+#autoJoin
+{
+	left: 112px;
+	bottom: 22px;
+}
+.indicator
+{
+	background: red;
+	width: 5px;
+	height: 21px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	left: 6px;
+	box-shadow: 0 0 8px red;
+}
+#settings-line
+{
+	top: 78px;
+	left: 10px;
+	width: 200px;
+}
