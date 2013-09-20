@@ -1,6 +1,6 @@
 ##BassPlugLite
 
-BassPlug Lite is intended to replace the annoying xhila autowoot script for Plug.DJ. BassPlug lite does not send adfly
+BassPlug Lite is intended to replace the annoying xhila autowoot script for Plug.DJ. BassPlugLite does not send adfly
 links every time the user joins the booth, unlike xhila. It is also slightly more configurable due to the fact that 
 there are buttons to toggle autojoin and autowoot.
 
@@ -44,7 +44,7 @@ For installation instructions go here: http://derpthebass.github.io/BassPlugLite
 >####TERMS OF REPRODUCTION USE
 
 >1. Provide a link back to the original repository (this repository), as
->in, https://github.com/derpthebass/BassPlug_lite/ , that is well-visible
+>in, https://github.com/derpthebass/BassPlugLite/ , that is well-visible
 >wherever the source is being reproduced.  For example, should you
 >display it on a website, you should provide a link above/below that
 >which the users use, titled something such as "ORIGINAL AUTHOR".
