@@ -17,7 +17,7 @@
  * 1. Provide a link back to the original repository (this repository), as
  *         in, https://github.com/derpthebass/BassPlugLite, that is well-visible
  *      wherever the source is being reproduced.  For example, should you
- *         display it on a website, you should provide a link above/below that
+ * 		display it on a website, you should provide a link above/below that
  *		which the users use, titled something such as "ORIGINAL AUTHOR".
  *
  * 2. Retain these three comments:  the GNU GPL license statement, this comment,
@@ -34,19 +34,23 @@
 
 var bplAutowoot = false;
 var bplAutojoin = false;
-var version     = 1.13;
+var version     = 1.17;
 
 function BassPlugLite(){
-    var joined = new Date().getTime();
-    window.BPLite = true;
-    $('#BPL-Menu').remove();
-    $('#dj-console').prepend('<div id="BPL-Menu"></div>');
-    $('#BPL-Menu').append(
-        '<p id="BPL-Autowoot">Autowoot</p>' +
-            '<p id="BPL-Autojoin">Autojoin</p>' +
-            '</div>'
-    );
-
+window.BPLite = true;
+    
+    var bplMenu = $('<div>');
+    var autoWootButton = $('<div>');
+    var autoJoinButton = $('<div>');
+    var line = $('<div>');
+    bplMenu.attr('id', 'bplMenu');
+    autoWootButton.attr('id', 'autoWoot').attr('class', 'bplButton').html('<div class=\'indicator\'></div>AutoWoot');
+    autoJoinButton.attr('id', 'autoJoin').attr('class', 'bplButton').html('<div class=\'indicator\'></div>AutoJoin');
+    line.attr('class', 'dotted-line').attr('id', 'settings-line');
+    
+    bplMenu.append(autoWootButton, autoJoinButton);
+    $('#user-container').append(bplMenu)
+    
 //Core Functions
     API.on(API.DJ_ADVANCE, function(data){
 
@@ -62,7 +66,7 @@ function BassPlugLite(){
     API.on(API.CHAT, function(data){
         if(data.message.indexOf("!disable") > -1 && API.getUser(data.fromID).permission > 1 && data.type === "mention") {
             if(bplAutojoin){
-                jQuery("#BPL-Autojoin").click();
+                jQuery("#autoJoin").click();
                 API.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
                 API.chatLog("Woops!, looks like autojoining may not be allowed in this room!", true);
                 API.djLeave()
@@ -70,42 +74,41 @@ function BassPlugLite(){
                 API.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
             }
         }
-        if(data.message == "!whosrunning" && data.fromID === "50aeb07e96fba52c3ca04ca8"){
-            var elapsed = new Date().getTime() - joined;
-            API.sendChat("@"+data.from+" I'm running BassPlugLite V. "+version+" ("+Math.round(elapsed/100000)+" M)");
+        if(data.message == "!whosrunning" && (data.fromID == "50aeb07e96fba52c3ca04ca8" || "518a0d73877b92399575657b")){
+            API.sendChat("@"+data.from+" I am running BassPlugLite V. "+version);
         }
     });
 
 //CSS/jQuery
-    jQuery("#BPL-Autowoot").on("click", function() {
+    $("#autoWoot").on("click", function() {
         bplAutowoot = !bplAutowoot;
-        jQuery(this).css("border-color", bplAutowoot ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
+        $($(this).children()[0]).css("box-shadow", bplAutowoot ? "0 0 8px green" : "0 0 8px red").css("background", bplAutowoot ? "green" : "red");
         $("#button-vote-positive").click();
     });
-    jQuery("#BPL-Autojoin").on("click", function() {
+    $("#autoJoin").on("click", function() {
         bplAutojoin = !bplAutojoin;
-        jQuery(this).css("border-color", bplAutojoin ? "rgba(0, 255, 41, 0.35)" : "rgb(87, 0, 0)");
+        $($(this).children()[0]).css("box-shadow", bplAutojoin ? "0 0 8px green" : "0 0 8px red").css("background", bplAutojoin ? "green" : "red");
         if(bplAutojoin)API.djJoin();
     });
 
-    jQuery("#BPL-Autowoot") .hover(function(event){
-            jQuery(this).css("border-style", "ridge");
+    $("#autoWoot") .hover(function(event){
+            $(this).css("box-shadow", "0 0 10px #FFF");
         },
         function(event){
-            jQuery(this).css("border-style", "solid");
+            $(this).css("box-shadow", "");
         });
-    jQuery("#BPL-Autojoin") .hover(function(event){
-            jQuery(this).css("border-style", "ridge");
+    $("#autoJoin") .hover(function(event){
+            $(this).css("box-shadow", "0 0 10px #FFF");
         },
         function(event){
-            jQuery("#BPL-Autojoin").css("border-style", "solid");
+            $(this).css("box-shadow", "");
         });
-    $('body').prepend('<style type="text/css" id="BPL-CSS">'
-        + '#BPL-Menu {position: absolute; top: 73%;}'
-        + '#BPL-Autojoin {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 258px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}'
-        + '#BPL-Autowoot {cursor: pointer; position: absolute; color:#3B3B3B; font-variant: small-caps; left: 4px; font-size: 12px; cursor: pointer; padding: 2px 2px 2px 2px;  border-style: solid; border-width: 1px; border-radius: 2px; border-color: rgb(87, 0, 0); margin-bottom: 1px; margin-top: 3px;}');
-
-    API.chatLog("Running BassPlugLite V. "+version);
+        
+    var css = $('<link>');
+    css.attr("rel", "stylesheet").attr("type", "text/css").attr("href", "https://dl.dropboxusercontent.com/s/8ltpejewcxo62z0/bassPlugLite.css").attr("id", "BPLCSS");
+    $('head').append(css)
+        
+API.chatLog("Running BassPlugLite V. "+version);
 }
 
-if(typeof BPLite == "undefined")BassPlugLite();
+if(typeof BPLite == "undefined" && API.enabled) BassPlugLite();
