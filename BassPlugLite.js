@@ -35,7 +35,7 @@
 bpl = {
     autowoot: false,
     clicks: 0,
-    version: 3.00
+    version: 3.01
     }
 
 function BassPlugLite(){
@@ -51,7 +51,7 @@ window.BPLite = true;
     });
 
     API.on(API.CHAT, function(data){
-        if(data.message == "!whosrunning" && (data.fromID == "50aeb07e96fba52c3ca04ca8" || "518a0d73877b92399575657b")){
+        if(data.message == "!whosrunning" && data.fromID == "50aeb07e96fba52c3ca04ca8"){
             API.sendChat("@"+data.from+" I am running BassPlugLite V. "+bpl.version);
         }
     });
