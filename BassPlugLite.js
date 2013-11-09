@@ -79,6 +79,7 @@ window.BPLite = true;
     $("#woot").bind('click', doubleClick); 
         
 API.chatLog("Running BassPlugLite V. "+bpl.version);
+$('#woot').click();
 }
 
 if(typeof BPLite !== "undefined") bpl.close();
