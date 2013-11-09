@@ -1,17 +1,12 @@
 ##BassPlugLite
 
-BassPlug Lite is intended to replace the annoying xhila autowoot script for Plug.DJ. BassPlugLite does not send adfly
-links every time the user joins the booth, unlike xhila. It is also slightly more configurable due to the fact that 
-there are buttons to toggle autojoin and autowoot.
+BassPlug Lite is a lightweight autowoot script for Plug.DJ..
 
 Functions of BassPlugLite -
 
-BPL provides 2 simple functions for people who want a very lightweight script -
+BPL provides 1 simple functions for people who want a very lightweight script -
 
 Function 1. Autowoot - Automatically woots a new song<br>
-Function 2. Autojoin - Automatically joins the DJ booth or waitlist after your song is over.
-
-Additionally, a !disable command is provided for room moderators which gives them the ability to turn of a user's autojoin.
 
 For installation instructions go here: http://derpthebass.github.io/BassPlugLite/
 
