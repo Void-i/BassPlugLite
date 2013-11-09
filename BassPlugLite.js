@@ -32,83 +32,44 @@
  * @derpthebass (Caleb)
  */
 
-var bplAutowoot = false;
-var bplAutojoin = false;
-var version     = 2.00;
+bpl = {
+    autowoot: false,
+    clicks: 0,
+    version: 3.00
+    }
 
 function BassPlugLite(){
 window.BPLite = true;
     
-    var bplMenu = $('<div>');
-    var autoWootButton = $('<div>');
-    var autoJoinButton = $('<div>');
-    var line = $('<div>');
-    bplMenu.attr('id', 'bplMenu');
-    autoWootButton.attr('id', 'autoWoot').attr('class', 'bplButton').html('<div class=\'indicator\'></div>AutoWoot');
-    autoJoinButton.attr('id', 'autoJoin').attr('class', 'bplButton').html('<div class=\'indicator\'></div>AutoJoin');
-    line.attr('class', 'dotted-line').attr('id', 'settings-line');
-    
-    bplMenu.append(autoWootButton, autoJoinButton);
-    $('#user-container').append(bplMenu)
-    
 //Core Functions
     API.on(API.DJ_ADVANCE, function(data){
 
-        if(bplAutowoot){setTimeout(function(){
-            $("#button-vote-positive").click();
+        if(bpl.autowoot){setTimeout(function(){
+            $("#woot").click();
         }, 2000);
-        }
-        if(bplAutojoin && $("#button-waitlist-leave").is(':visible') === false){
-            API.djJoin()
         }
     });
 
     API.on(API.CHAT, function(data){
-        if(data.message.indexOf("!disable") > -1 && API.getUser(data.fromID).permission > 1 && data.type === "mention") {
-            if(bplAutojoin){
-                jQuery("#autoJoin").click();
-                API.sendChat("@"+data.from+" - BPʟ Autojoin disabled!");
-                API.chatLog("Woops!, looks like autojoining may not be allowed in this room!", true);
-                API.djLeave()
-            }else{
-                API.sendChat("@"+data.from+" - BPʟ Autojoin was not enabled!")
-            }
-        }
         if(data.message == "!whosrunning" && (data.fromID == "50aeb07e96fba52c3ca04ca8" || "518a0d73877b92399575657b")){
-            API.sendChat("@"+data.from+" I am running BassPlugLite V. "+version);
+            API.sendChat("@"+data.from+" I am running BassPlugLite V. "+bpl.version);
         }
     });
 
 //CSS/jQuery
-    $("#autoWoot").on("click", function() {
-        bplAutowoot = !bplAutowoot;
-        $($(this).children()[0]).css("box-shadow", bplAutowoot ? "0 0 8px green" : "0 0 8px red").css("background", bplAutowoot ? "green" : "red");
-        $("#button-vote-positive").click();
+    $("#woot").click(function() {
+        bpl.clicks++;
+        if (bpl.clicks == 2){
+            bpl.autowoot = !bpl.autowoot;
+            bpl.clicks = 0;
+            require('app/base/Context').trigger('notify', 'icon-woot', bpl.autowoot ? 'AutoWoot is now on' : 'AutoWoot is now off');
+        }
+        setTimeout(function(){
+            bpl.clicks = 0;
+        }, 1000);
     });
-    $("#autoJoin").on("click", function() {
-        bplAutojoin = !bplAutojoin;
-        $($(this).children()[0]).css("box-shadow", bplAutojoin ? "0 0 8px green" : "0 0 8px red").css("background", bplAutojoin ? "green" : "red");
-        if(bplAutojoin)API.djJoin();
-    });
-
-    $("#autoWoot") .hover(function(event){
-            $(this).css("box-shadow", "0 0 10px #FFF");
-        },
-        function(event){
-            $(this).css("box-shadow", "");
-        });
-    $("#autoJoin") .hover(function(event){
-            $(this).css("box-shadow", "0 0 10px #FFF");
-        },
-        function(event){
-            $(this).css("box-shadow", "");
-        });
         
-    var css = $('<link>');
-    css.attr("rel", "stylesheet").attr("type", "text/css").attr("href", "https://dl.dropboxusercontent.com/s/8ltpejewcxo62z0/bassPlugLite.css").attr("id", "BPLCSS");
-    $('head').append(css)
-        
-API.chatLog("Running BassPlugLite V. "+version);
+API.chatLog("Running BassPlugLite V. "+bpl.version);
 }
 
 if(typeof BPLite == "undefined" && API.enabled) BassPlugLite();
