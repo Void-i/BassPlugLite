@@ -43,7 +43,6 @@ bpl = {
     }
     
     API.on(API.ADVANCE, bpl.djAdvance, this);
-    API.on(API.CHAT, bpl.chat, this); 
     $("#woot").bind('click', bpl.doubleClick); 
         
     API.chatLog("Running BassPlugLite V. "+bpl.version);
